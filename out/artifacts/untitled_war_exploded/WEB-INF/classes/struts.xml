@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+   <constant name="struts.custom.i18n.resources" value="global"/>
+   <constant name="struts.action.excludePattern" value="/static/.*?"/>
+   <package name="default" extends="struts-default">
+      <action name="editdiary" class="controller.DiaryAction">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userlogin" class="controller.UserAction" method="checkuser">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">index.jsp</result>
+         <result name="error">500.jsp</result>
+      </action>
+      <action name="userlist" class="controller.UserAction" method="usershow">
+         <result name="success">/welcome.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userreg" class="controller.UserAction" method="userreg">
+         <result name="success">/index.jsp</result>
+         <result name="input">/reg.jsp</result>
+      </action>
+      <action name="addproduct" class="controller.ProductAction" method="addproduct">
+      <result name="success" type="redirectAction">adminlist</result>
+      <result name="input">/add/addproduct.jsp</result>
+      </action>
+      <action name="addtemplate" class="controller.TemplateAction" method="addtemplate">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/add/addproduct.jsp</result>
+      </action>
+      <action name="adminlist" class="controller.AdminAction">
+         <result name="success">/adminview.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="useradd" class="controller.UserAction" method="useradd">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userdel" class="controller.UserAction" method="userdel">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="productdel" class="controller.ProductAction" method="productdel">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="templatedel" class="controller.TemplateAction" method="templatedel">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="orderdel" class="controller.OrderListAction" method="orderdel">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userdelorder" class="controller.OrderListAction" method="orderdel">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="diarydel" class="controller.DiaryAction" method="diarydel">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userdiarydel" class="controller.DiaryAction" method="diarydel">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="lookdiary" class="controller.DiaryAction" method="lookdiary">
+         <result name="success">/user_diary.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="addorder" class="controller.OrderListAction" method="addorder">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="lookorder" class="controller.OrderInfoAction" method="lookorder">
+         <result name="success">/orderinfolist.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="looktemplate" class="controller.TemplateInfoAction" method="looktemplate">
+         <result name="success">/showshow.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="templateinfo" class="controller.TemplateInfoAction">
+         <result name="success">/add/addtemplateinfo.jsp</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="addtemplateinfo" class="controller.TemplateInfoAction" method="addtemplateinfo">
+         <result name="success" type="redirectAction">adminlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userbuytem" class="controller.OrderListAction" method="userbuytem">
+         <result name="success" type="redirectAction">userlist</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="userdelpro" class="controller.OrderListAction" method="userdelpro">
+         <result name="success" type="redirectAction">lookorder</result>
+         <result name="input">/500.jsp</result>
+      </action>
+      <action name="updateuser" class="controller.UserAction" method="updateuser">
+         <result name="success">/update/updateuser.jsp</result>
+      </action>
+      <action name="toupdateuser" class="controller.UserAction" method="updateuser">
+         <result name="success" type="redirectAction">adminlist</result>
+      </action>
+      <action name="updateproduct" class="controller.ProductAction" method="updateproduct">
+         <result name="success">/update/updateproduct.jsp</result>
+      </action>
+      <action name="toupdateproduct" class="controller.ProductAction" method="updateproduct">
+         <result name="success" type="redirectAction">adminlist</result>
+      </action>
+      <action name="updateorder" class="controller.UserAction">
+         <result name="success">/update/updateuser.jsp</result>
+      </action>
+   </package>
+</struts>    
