@@ -1,2 +1,2 @@
 # online_decorate
-struts2 project
+利用Java Struts2 实现的简易网上装修系统
